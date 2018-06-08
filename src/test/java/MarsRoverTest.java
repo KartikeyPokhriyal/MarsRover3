@@ -17,4 +17,11 @@ public class MarsRoverTest {
 
         assertEquals(new MarsRover(new Location(1, 3, 'N')), marsRover.traverse("M"));
     }
+
+    @Test
+    public void marsRoverShouldTraverseOnCommandString() {
+        MarsRover marsRover = new MarsRover(new Location(1, 2, 'N'));
+
+        assertEquals(new MarsRover(new Location(1, 2, 'S')), marsRover.traverse("MRRM"));
+    }
 }
