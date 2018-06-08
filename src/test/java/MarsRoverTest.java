@@ -29,4 +29,11 @@ public class MarsRoverTest {
     public void roverShouldNotCrossThePlateauCoordinates() {
         Plateau plateau = new Plateau(-1, 1);
     }
+
+    @Test (expected = CommandNotApplicableException.class)
+    public void shouldThrowExceptionWhenEnteredAnInvalidCommand() {
+        MarsRover marsRover = new MarsRover(new Location(1, 2, 'N'));
+
+        marsRover.traverse("MMHHHHgMM");
+    }
 }

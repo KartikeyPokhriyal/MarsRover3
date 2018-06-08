@@ -7,7 +7,7 @@ private Location location;
         this.location = location;
     }
 
-    public MarsRover traverse(String commands) {
+    public MarsRover traverse(String commands) throws CommandNotApplicableException {
         char[] command = commands.toCharArray();
 
         for(char value: command) {
@@ -16,6 +16,9 @@ private Location location;
             }
             else if(value == 'M'){
                location = location.getChangedCoordinates();
+            }
+            else {
+                throw new CommandNotApplicableException("You've entered a wrong command");
             }
         }
             return new MarsRover(location);
