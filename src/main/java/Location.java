@@ -6,7 +6,7 @@ public class Location {
     private char compassDirection;
 
 
-    public Location(int x_coordinates, int y_coordinates, char compassDirection) {
+    public Location(int x_coordinates, int y_coordinates, char compassDirection) throws IllegalArgumentException {
         if (x_coordinates < 0 || y_coordinates < 0 || x_coordinates > 5 || y_coordinates > 5)
             throw new IllegalArgumentException();
         else {
@@ -14,10 +14,6 @@ public class Location {
             this.x_coordinates = x_coordinates;
             this.y_coordinates = y_coordinates;
         }
-    }
-
-    public Location(char compassDirection) {
-        this.compassDirection = compassDirection;
     }
 
     public Location(int plateau_x_coordinate, int plateau_y_coordinate) {
@@ -50,24 +46,8 @@ public class Location {
         return Objects.hash(x_coordinates, y_coordinates, compassDirection);
     }
 
-    public static Location north() {
-        return new Location('N');
-    }
 
-    public static Location east() {
-        return new Location('E');
-    }
-
-    public static Location west() {
-        return new Location('W');
-    }
-
-    public static Location south() {
-        return new Location('S');
-    }
-
-
-    public Location turnByNinetyDegree(char command) {
+    public Location getChangedDirection(char command) {
 
         if(command == 'R') {
             if (compassDirection == 'N')
@@ -94,7 +74,7 @@ public class Location {
         return this;
     }
 
-    public Location move() {
+    public Location getChangedCoordinates() {
         if(compassDirection == 'N')
             return new Location(x_coordinates, y_coordinates + 1, compassDirection);
 
@@ -108,6 +88,5 @@ public class Location {
             return new Location(x_coordinates - 1, y_coordinates , compassDirection);
 
         else return this;
-
     }
 }

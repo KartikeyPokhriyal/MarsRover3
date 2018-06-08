@@ -12,14 +12,15 @@ private Location location;
 
         for(char value: command) {
             if (value == 'L' || value == 'R') {
-                location = location.turnByNinetyDegree(value);
+                location = location.getChangedDirection(value);
             }
             else if(value == 'M'){
-               location = location.move();
+               location = location.getChangedCoordinates();
             }
         }
             return new MarsRover(location);
         }
+
 
     @Override
     public String toString() {
@@ -38,7 +39,6 @@ private Location location;
 
     @Override
     public int hashCode() {
-
         return Objects.hash(location);
     }
 }
