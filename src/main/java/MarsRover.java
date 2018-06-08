@@ -14,6 +14,9 @@ private Location location;
             if (value == 'L' || value == 'R') {
                 location = location.turnByNinetyDegree(value);
             }
+            else {
+               location = location.move();
+            }
         }
             return new MarsRover(location);
         }
@@ -38,5 +41,7 @@ private Location location;
 
         return Objects.hash(location);
     }
+
+
 }
 
