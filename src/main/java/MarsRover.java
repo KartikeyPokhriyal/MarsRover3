@@ -14,7 +14,7 @@ private Location location;
             if (value == 'L' || value == 'R') {
                 location = location.turnByNinetyDegree(value);
             }
-            else {
+            else if(value == 'M'){
                location = location.move();
             }
         }
@@ -41,7 +41,5 @@ private Location location;
 
         return Objects.hash(location);
     }
-
-
 }
 

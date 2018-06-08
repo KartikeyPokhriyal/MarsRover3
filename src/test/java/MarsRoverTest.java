@@ -24,4 +24,9 @@ public class MarsRoverTest {
 
         assertEquals(new MarsRover(new Location(1, 2, 'S')), marsRover.traverse("MRRM"));
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void roverShouldNotCrossThePlateauCoordinates() {
+        Plateau plateau = new Plateau(-1, 1);
+    }
 }

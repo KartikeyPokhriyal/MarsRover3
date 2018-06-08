@@ -7,13 +7,22 @@ public class Location {
 
 
     public Location(int x_coordinates, int y_coordinates, char compassDirection) {
-        this.x_coordinates = x_coordinates;
-        this.y_coordinates = y_coordinates;
-        this.compassDirection = compassDirection;
+        if (x_coordinates < 0 || y_coordinates < 0 || x_coordinates > 5 || y_coordinates > 5)
+            throw new IllegalArgumentException();
+        else {
+            this.compassDirection = compassDirection;
+            this.x_coordinates = x_coordinates;
+            this.y_coordinates = y_coordinates;
+        }
     }
 
     public Location(char compassDirection) {
         this.compassDirection = compassDirection;
+    }
+
+    public Location(int plateau_x_coordinate, int plateau_y_coordinate) {
+        x_coordinates = plateau_x_coordinate;
+        y_coordinates = plateau_y_coordinate;
     }
 
     @Override
